@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ site_title }}</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h1><a href="/">Teams</a></h1>
+
+<h2>Match Fixtures</h2>
+
+<table>
+  <tr>
+    <th>Sl No</th>
+    <th>Team A</th>
+    <th>Team B</th>
+    <th>Date</th>
+    <th>&nbsp;</th>
+  </tr>
+  
+  {% for i in fixtureDetails %} 
+  <tr>
+    <td>Match : {{ forloop.counter }}</td>
+    <td>{{i.team_a_name.team_name}}</td>
+    <td>{{i.team_b_name.team_name}}</td>
+    <td>{{i.held_on}}</td>
+    <td>
+      {% if i.is_played == "n" %}
+        <button onclick="playMatch('{{ i.id }}','{{ i.team_a_name_id }}','{{ i.team_b_name_id }}')">PLAY</button>
+      {% else %}
+        {{i.winner.team_name}} won the match
+      {% endif %}
+    </td>
+  </tr>
+  {% endfor %} 
+</table>
+
+
+<!----- AJAX FOR PLAY EACH AND EVERY MATCH START ------------------>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+<script>
+    function playMatch(rowId,teamAId,teamBId){ 
+    
+      $.ajax(
+      {
+          type:"POST",
+          url: "/play_match/",
+          data:{
+              rowId: rowId,
+              teamAId: teamAId,
+              teamBId: teamBId
+          },
+          success: function( data ) 
+          {
+              if(data=='1')
+                window.location.reload()
+          }
+       })
+
+    }
+  </script>
+<!----- AJAX FOR PLAY EACH AND EVERY MATCH END ------------------>
+
+</body>
+</html>

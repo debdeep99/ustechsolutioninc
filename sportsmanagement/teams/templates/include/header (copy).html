@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site_title }}</title>
+
+{% load static %}
+
+<link href="{% static 'frontend/css/iconmoon-style.css' %}" rel="stylesheet" />
+<link href="{% static 'frontend/css/bootstrap.min.css' %}" rel="stylesheet" />
+<link href="{% static 'frontend/css/font-awesome.css' %}" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'frontend/css/demo.css' %}">
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
+<!-- Owl Carsouls -->
+<link rel="stylesheet" href="{% static 'frontend/css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'frontend/css/owl.theme.default.css' %}">
+
+<!-- Jquery chosen for multiselect dropdown -->
+<link rel="stylesheet" href="{% static 'frontend/css/chosen.css' %}">
+
+<!-- Jquery star rating css -->
+<link rel="stylesheet" href="{% static 'frontend/css/star-rating.css' %}">
+
+<!-- scrollbar -->
+<link href="{% static 'frontend/css/prettify.css' %}" type="text/css" rel="stylesheet" />
+
+<!-- Jcrop -->
+<link rel="stylesheet" href="{% static 'frontend/css/jcrop.css' %}" type="text/css" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.css" />
+
+
+<link href="{% static 'frontend/css/flexslider.css' %}" rel="stylesheet" />
+<link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css"
+rel="stylesheet" type="text/css" />
+
+
+<link href="{% static 'frontend/css/style.css' %}" rel="stylesheet" />
+<link href="{% static 'frontend/css/responsive.css' %}" rel="stylesheet" />
+<style type="text/css">
+  .navbarmain .navbar-nav li.profile-drop a span.profile_image_header{
+    width: 36px;
+height: 36px;
+display: inline-block;
+border-radius: 50%;
+overflow: hidden;
+vertical-align: middle;background-position: top center;}
+</style>
+</head>
+
+<body>
+<!--header start here-->
+<nav class="navbar navbarmain">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="{{ SITE_URL }}"><img src="{% static 'frontend/images/logo.png' %}" alt="Ulistit" /></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a class="{% if VIEW_NAME == 'postad' %} active {% endif %} postaddbg" href="/postad">Post Your Free Ad</a></li>
+        {% if session_data.ulistit %}
+        <li class="profile-drop">
+            <a href="/myprofile"><span class="profile_image_header" style="display: none;"></span><span id="user"></span></a>
+            <a href="javascript:void(0)" class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="icon-downwards-arrow-key"></span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/myads">My Ads</a></li>
+                <li><a href="/myprofile">My Profile</a></li>
+                <li><a href="javascript:void(0)" id="signout">Logout</a></li>
+            </ul>
+        </li>
+        {% else %}
+        <li class="{% if VIEW_NAME == 'signin' %} active {% endif %}"><a href="/signin">Sign In</a></li>
+          <li class="{% if VIEW_NAME == 'signup' or VIEW_NAME == 'signup_step2' %} active {% endif %}"><a href="/signup">Sign Up</a></li>
+        {% endif %}
+        <li class="{% if VIEW_NAME == 'help' %} active {% endif %}"><a href="/help">Help</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--header end here-->
+
+<script type="text/javascript">
+  var site_url = '{{ SITE_URL }}',
+      MEDIA_URL= '{{MEDIA_URL}}',
+      ALGOLIA_APPID = '{{ ALGOLIA_APPID }}',
+      ALGOLIA_APIKEY = '{{ ALGOLIA_APIKEY }}',
+      ALGOLIA_ADMIN_APIKEY = '{{ALGOLIA_ADMIN_APIKEY}}';
+</script>

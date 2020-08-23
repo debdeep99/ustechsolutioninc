@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ site_title }}</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Teams</h2>
+
+<table>
+  <tr>
+    <th>Team Name</th>
+    <th>Logo</th>
+    <th>Points</th>
+    <th>Club/State</th>
+    <th>&nbsp;</th>
+  </tr>
+ 
+  {% if teamData %}
+    {% for i in teamData %} 
+    <tr>
+      <td>{{i.team__team_name}}</td>
+      <td><img src="\media\{{ i.team__logo }}" style='width:100px;'"></td>
+      <td>{{i.total}}</td>
+      <td>{{i.team__club_state}}</td>
+      <td>
+        <a href="/teamdetails/{{i.team__id}}">Details</a>
+      </td>
+    </tr>
+    {% endfor %}
+  {% else %}
+  <tr>
+      <td colspan="4">We could not found any team.</td>
+  </tr>
+  {% endif %}
+</table>
+
+<h1><a href="/match-fixtures">Match Fixture</a></h1>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ site_title }}</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h1><a href="/">Teams</a></h1>
+
+<h2>{{ teamName }}</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Photo</th>
+    <th>Jersey No</th>
+    <th>&nbsp;</th>
+  </tr>
+  
+  {% for i in teamBasedPlayerList %} 
+  <tr>
+    <td>{{i.first_name}} {{i.last_name}}</td>
+    <td><img src="{{ i.photo.url }}" style='width:100px;'"></td>
+    <td>{{i.jersey_number}}</td>
+    <td>
+      <a href="/teamdetails/{{i.id}}">Details</a>
+    </td>
+  </tr>
+  {% endfor %} 
+</table>
+
+</body>
+</html>

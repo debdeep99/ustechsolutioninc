@@ -1,0 +1,154 @@
+<!--footer start here-->
+{% load static %}
+<footer>
+	<div class="footertopart container">
+    	<div class="row">
+        	<div class="col-md-2 col-sm-3"><img src="{% static 'frontend/images/footerlogo.png' %}" class="footerlogomarn" alt=""></div>
+            <div class="col-md-2 col-sm-3">
+            	<h5 class="text-uppercase">Company Info</h5>
+                <ul class="footerlink">
+                	{% if  staticpagecontents %}
+                        {% for staticpage in staticpagecontents %}
+                            {% if staticpage.page_short_name == 'locationmap' %}
+                               <li><a href="/{{staticpage.slug}}">Locations map</a></li>
+                            {% elif staticpage.page_short_name == 'popularsearches' %}
+                                <li><a href="/{{staticpage.slug}}">Popular searches</a></li>
+                            {% elif staticpage.page_short_name == 'archive' %}
+                                <li><a href="/{{staticpage.slug}}">Archive</a></li>
+                            {% elif staticpage.page_short_name == 'sitemap' %}
+                                <li><a href="/{{staticpage.slug}}">Sitemap</a></li>
+                            {% elif staticpage.page_short_name == 'featureads' %}
+                               <li><a href="/{{staticpage.slug}}">Featured ads</a></li>   
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-3">
+            	<h5 class="text-uppercase">Contact Us</h5>
+                <ul class="footerlink">
+                    {% if  staticpagecontents %}
+                        {% for staticpage in staticpagecontents %}
+                            {% if staticpage.page_short_name == 'termsandconditions' %}
+                                <li><a href="/{{staticpage.slug}}">Terms of use</a></li>
+                            {% elif staticpage.page_short_name == 'privacypolicy' %}
+                                <li><a href="/{{staticpage.slug}}">Privacy policy</a></li>
+                            {% elif staticpage.page_short_name == 'contactus' %}
+                                <li><a href="/{{staticpage.slug}}">Contact</a></li>
+                            {% elif staticpage.page_short_name == 'help' %}
+                               <li><a href="/{{staticpage.slug}}">Help</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-3">
+            	<h5 class="text-uppercase">About Us</h5>
+                <ul class="footerlink">
+                	{% if  staticpagecontents %}
+                        {% for staticpage in staticpagecontents %}
+                            {% if staticpage.page_short_name == 'whoweare' %}
+                                <li><a href="/{{staticpage.slug}}">Who we are</a></li>
+                            {% elif staticpage.page_short_name == 'joinulistit' %}
+                                <li><a href="/{{staticpage.slug}}">Join Ulistit</a></li>
+                            {% elif staticpage.page_short_name == 'happycustomers' %}
+                                <li><a href="/{{staticpage.slug}}">Happy customers</a></li>
+                            {% elif staticpage.page_short_name == 'support' %}
+                               <li><a href="/{{staticpage.slug}}">Support</a></li>    
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-3">
+            	<h5 class="text-uppercase">Get connected</h5>
+                <ul class="footersocialllink">
+                	<li><a href="#"><span class="icon-fb"></span></a></li>
+                    <li><a href="#"><span class="icon-tw"></span></a></li>
+                    <li><a href="#"><span class="icon-google"></span></a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-3">
+            	<h5 class="text-uppercase">Download The App</h5>
+                <ul class="footerlink">
+                	<li><img src="{% static 'frontend/images/googleapp.jpg' %}" alt=""></li>
+                    <li><a href="#"><img src="{% static 'frontend/images/appleapp.jpg' %}" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footerbottom"><p>Copyright © 2017 ulistit.com</p></div>
+</footer>
+<!--footer start here-->
+
+
+<script src="{% static 'frontend/js/jquery.min.js' %}"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{% static 'frontend/js/bootstrap.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'frontend/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'frontend/js/bootbox.min.js' %}" type="text/javascript" charset="utf-8" async defer></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script type="text/javascript" src="{% static 'frontend/js/responsiveslides.min.js' %}"></script>
+
+<!-- Jquery star rating JS -->
+<script type="text/javascript" src="{% static 'frontend/js/star-rating.js' %}"></script>
+
+<!-- Jquery chosen for multiselect dropdown -->
+<script src="{% static 'frontend/js/chosen.jquery.js' %}" type="text/javascript" charset="utf-8" async defer></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
+ -->
+
+<!-- scrollbar -->
+<script type="text/javascript" src="{% static 'frontend/js/prettify.js' %}"></script>
+<script type="text/javascript" src="{% static 'frontend/js/jquery.slimscroll.min.js' %}"></script>
+<script src="{% static 'frontend/js/custom.js' %}" type="text/javascript"></script>
+<script type="text/javascript" src="{% static 'frontend/js/jquery.cookie.js' %}"></script>
+
+<!-- Jcrop -->
+<script src="{% static 'frontend/js/jcrop.js' %}"></script>
+
+<!-- algolia -->
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@1/dist/instantsearch.min.js"></script>
+<script src="{% static 'frontend/js/jquery.flexslider.js' %}" type="text/javascript" charset="utf-8" async defer></script>
+<script src="{% static 'frontend/js/jquery.timeago.js' %}" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+<!-- Google Map JS -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_f3zOOpd5PO67EhX5_INrMRhoPBksj3w"></script>
+
+<!-- socket io jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+<script type="text/javascript">
+var data = [{ id: 0, text: 'enhancement' }, { id: 1, text: 'bug' }, { id: 2, text: 'duplicate' }, { id: 3, text: 'invalid' }, { id: 4, text: 'wontfix' }];
+
+if ($(".js-example-data-array").select2 != undefined) {
+    $(".js-example-data-array").select2({
+      data: data
+    })
+}
+
+if ($(".js-example-data-array-selected").select2 != undefined) {
+    $(".js-example-data-array-selected").select2({
+      data: data
+    })
+}
+</script>
+
+
+<!-- ------------------ SITE JS FILE ------------------ -->
+<script src="{% static 'frontend/js/site/common.js' %}?ver={{ JSVERSION }}"></script>
+
+<!-- Include js file template wise -->
+{% if JS_FILE %}
+    <script src="{{JS_FILE}}"></script>
+{% endif %}
+
+<!-- Include social sites (facebook, google plus) login js page for signup and signin page  -->
+{% if VIEW_NAME == 'signup' or VIEW_NAME == 'signin' %}
+    <script src="{% static 'frontend/js/site/social_site_login.js' %}?ver={{ JSVERSION }}" type="text/javascript" charset="utf-8" async defer></script>
+{% endif %}
+
+</body>
+</html>
