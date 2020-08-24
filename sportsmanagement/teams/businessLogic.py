@@ -14,6 +14,7 @@ from random import *
 # ************************* CREATE  MATCH FIXTURE REQUEST ************************* #
 
 def createMatchFixture():
+    
 
     """
         Call api to get data
@@ -62,6 +63,8 @@ def createMatchFixture():
 
 
 def fixtures(teams):
+
+
     """
         Make team List and also determine day off
     """ 
