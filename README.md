@@ -36,5 +36,5 @@ Database Postgres version used :
    F) Unit Test :  In the 'test.py' I have intriduced a test class which consist of one setUp method , two test method and one teardown method
       for fullfillment of all the test cases.
       
-      All the method names and variable names are self explanatory and written in camel casing format. So therefor I am uploading the total project
+      All the method names and variable names are self explanatory and written in followd by PEP(Python Enhancement Proposal) 8 convention. So therefor I am uploading the total project
       along with db backup file and sql file.
