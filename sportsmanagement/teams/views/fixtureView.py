@@ -14,6 +14,7 @@ from teams.businessLogic import *
 
 class TeamFixture(View):
 
+
     def get(self, request, format=None):
 
         """

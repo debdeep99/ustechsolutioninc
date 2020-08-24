@@ -11,7 +11,11 @@ from django.db.models import Sum
 #================= My Teams ================= #
 
 class Index(View):
+
+
 	def get(self,request):
+
+
 		template = loader.get_template('index.html')
 		
 		teamData = MatchPoints.objects.values('team__id','team__team_name','team__club_state','team__logo').annotate(total=Sum('point')).all()
@@ -26,7 +30,11 @@ class Index(View):
 #================= A Team and it's players ================= #
 
 class TeamDetails(View):
+
+
 	def get(self,request,team_id):
+
+
 		template = loader.get_template('player_details.html')
 		TeamName = Team.objects.only('team_name').get(id=team_id).team_name
 		teamBasedPlayerList = Player.objects.filter(team__id__contains=team_id).all()
@@ -42,6 +50,8 @@ class TeamDetails(View):
 #================= Match Fixtures ================================= #
 
 class MatchFixture(View):
+
+	
 	def get(self,request):
 		template = loader.get_template('match_fixture_details.html')
 		fixtureDetails = Matches.objects.select_related('team_a_name').select_related('team_b_name').select_related('winner').all()
